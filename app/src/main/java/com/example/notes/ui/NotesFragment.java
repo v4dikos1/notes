@@ -52,6 +52,7 @@ public class NotesFragment extends Fragment {
             TextView date = itemView.findViewById(R.id.date);
             date.setText(note.getDate().toString());
 
+            notesContainer.addView(itemView);
         }
     }
 
