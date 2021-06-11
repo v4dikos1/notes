@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card"
+    style="@style/CardViewStyle">
+
+    <LinearLayout
+        android:id="@+id/linear_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/CardTextStyle"
+            android:paddingTop="@dimen/card_margin"
+            android:textSize="@dimen/card_text_size"
+            tools:text="Название заметки" />
+
+        <TextView
+            android:id="@+id/date"
+            style="@style/CardTextStyle"
+            android:paddingBottom="@dimen/card_margin"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/date_text_size"
+            tools:text="Дата создания заметки" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
