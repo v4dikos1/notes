@@ -1,5 +1,6 @@
 package com.example.notes.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,29 @@ import java.util.List;
 
 public class NotesFragment extends Fragment {
 
+    interface OnNotesClicked {
+        void onNotesClicked(Notes notes);
+    }
+
+    private OnNotesClicked onNotesClicked;
+
     private NotesPresenter presenter;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+        if (context instanceof OnNotesClicked) {
+            onNotesClicked = (OnNotesClicked) context;
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+        onNotesClicked = null;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +68,15 @@ public class NotesFragment extends Fragment {
 
             View itemView = LayoutInflater.from(requireContext()).inflate(R.layout.item_note,
                     notesContainer, false);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onNotesClicked != null) {
+                        onNotesClicked.onNotesClicked(note);
+                    }
+                }
+            });
 
             TextView title = itemView.findViewById(R.id.title);
             title.setText(note.getTitle());

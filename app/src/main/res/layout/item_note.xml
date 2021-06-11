@@ -3,18 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/card_margin"
-    android:layout_marginEnd="@dimen/card_margin"
-    android:layout_marginTop="@dimen/card_margin_bottom_top"
-    android:layout_marginBottom="@dimen/card_margin_bottom_top"
-    android:checkable="true"
-    android:clickable="true"
-    android:focusable="true"
-    app:cardCornerRadius="@dimen/card_margin"
-    app:cardElevation="@dimen/card_elevation"
-    app:rippleColor="@color/white">
+    style="@style/CardViewStyle">
 
     <LinearLayout
         android:id="@+id/linear_card"
